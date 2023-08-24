@@ -1,0 +1,45 @@
+#             oooo                                o8o      .       .
+#             `888                                `"'    .o8     .o8
+#    .oooo.    888   .oooo.    .ooooo.  oooo d8b oooo  .o888oo .o888oo oooo    ooo
+#   `P  )88b   888  `P  )88b  d88' `"Y8 `888""8P `888    888     888    `88.  .8'
+#    .oP"888   888   .oP"888  888        888      888    888     888     `88..8'
+#   d8(  888   888  d8(  888  888   .o8  888      888    888 .   888 .    `888'
+#   `Y888""8o o888o `Y888""8o `Y8bod8P' d888b    o888o   "888"   "888"     .8'
+#                                                                      .o..P'
+#                                                                      `Y8P'
+
+window:
+  padding:
+    x: 8
+    y: 8
+  dynamic_padding: true
+  opacity: 0.9
+
+font:
+  normal:
+    style: Regular
+    # family: MonoLisa
+    # family: Liga SFMono Nerd Font
+    family: SF Mono
+    # family: FiraCode NF
+    # family: MesloLGS NF
+    # family: Jetbrains Mono NF
+    # family: DejaVu Sans Mono
+    # family: Source Code Pro
+    # family: CaskaydiaCove Nerd Font SemiLight
+  size: 11
+
+cursor:
+  style:
+    # Available: Beam, Block, Underline
+    shape: Beam
+    blinking: On
+    blink-interval: 450
+
+# Colors:
+import:
+  # uncomment the colorscheme you want below:
+#  - ~/.config/alacritty/gruvbox.yml
+#  - ~/.config/alacritty/dracula.yml
+#  - ~/.config/alacritty/catppuccin-mocha.yml
+  - ~/.config/alacritty/catppuccin-frappe.yml

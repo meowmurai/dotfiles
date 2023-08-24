@@ -1,0 +1,74 @@
+# keys binding
+include keybinding
+# color
+include color
+
+# Border
+default_floating_border pixel 0
+default_border pixel 1
+for_window [class="^.*"] border pixel 3
+
+# Gap
+gaps inner 10
+gaps outer 0
+
+# Super key
+set $mod Mod4
+
+# disable focus changes on mouse over
+focus_follows_mouse no
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#         status_command i3status
+# }
+
+# background
+exec --no-startup-id nitrogen --restore
+# exec_always feh --bg-fill $HOME/.config/i3/wallpapers/sblx4js9c3l41.png/
+exec picom
+exec_always --no-startup-id $HOME/.config/i3/polybar.sh
+exec xinput set-prop "VEN_04F3:00 04F3:31E2 Touchpad" "libinput Tapping Enabled" 1
+
+# rotate hdmi monito vertically
+exec xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate left --output eDP-1 --primary --mode 1920x1200 --pos 0x840 --rotate normal
