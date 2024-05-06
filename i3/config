@@ -8,9 +8,14 @@ default_floating_border pixel 0
 default_border pixel 1
 for_window [class="^.*"] border pixel 3
 
+# Title 
+for_window [class="^.*"] title_format "<b>%instance %title</b>"
+# for_window [class="^.*"] title_window_icon toggle
 # Gap
-gaps inner 10
-gaps outer 0
+gaps inner 5
+gaps outer 5
+
+smart_borders on
 
 # Super key
 set $mod Mod4
@@ -20,7 +25,7 @@ focus_follows_mouse no
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -60,7 +65,9 @@ set $ws10 "10"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {
-#         status_command i3status
+#   colors {
+#     background  red
+#   }
 # }
 
 # background
@@ -70,5 +77,11 @@ exec picom
 exec_always --no-startup-id $HOME/.config/i3/polybar.sh
 exec xinput set-prop "VEN_04F3:00 04F3:31E2 Touchpad" "libinput Tapping Enabled" 1
 
+# subcribe to ipc
+exec_always --no-startup-id bash $HOME/.config/i3/on_focused.sh
 # rotate hdmi monito vertically
-exec xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate left --output eDP-1 --primary --mode 1920x1200 --pos 0x840 --rotate normal
+# exec xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate left --output eDP-1 --primary --mode 1920x1200 --pos 0x840 --rotate normal
+
+# disable power saving (for example if using xscreensaver)
+# exec --no-startup-id xset s off -dpms
+
