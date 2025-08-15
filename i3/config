@@ -75,13 +75,18 @@ exec --no-startup-id nitrogen --restore
 # exec_always feh --bg-fill $HOME/.config/i3/wallpapers/sblx4js9c3l41.png/
 exec picom
 exec_always --no-startup-id $HOME/.config/i3/polybar.sh
-exec xinput set-prop "VEN_04F3:00 04F3:31E2 Touchpad" "libinput Tapping Enabled" 1
+
+# xinput list for names of available devices
+# xinput list-props "device name" for list of properties
+exec xinput set-prop "ELAN06FA:00 04F3:327E Touchpad" "libinput Tapping Enabled" 1
 
 # subcribe to ipc
-exec_always --no-startup-id bash $HOME/.config/i3/on_focused.sh
+# exec_always --no-startup-id bash $HOME/.config/i3/on_focused.sh
 # rotate hdmi monito vertically
 # exec xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate left --output eDP-1 --primary --mode 1920x1200 --pos 0x840 --rotate normal
 
 # disable power saving (for example if using xscreensaver)
 # exec --no-startup-id xset s off -dpms
 
+# remamp capslock to ctrl
+exec --no-startup-id setxkbmap -option caps:ctrl_modifier
